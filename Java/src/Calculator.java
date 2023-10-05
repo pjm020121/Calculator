@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.util.ArrayList;
+
 public class Calculator {
     public static String Plus(char[] n1, char[] n2){
 
@@ -596,7 +597,8 @@ public class Calculator {
         String result = "";
         String n1 = "";
         String n2 = "";
-        char operator = '\u0000';
+        String num_list = "";
+        ArrayList<Character> operator = new ArrayList<>();
         int count = 0;
 
         System.out.print("수식을 입력해주세요: ");
@@ -612,9 +614,14 @@ public class Calculator {
 
         // operator 기호대입
         for (int i = 0; i < or_array.length; i++){
+
+            if (or_array[i] >= '0' && or_array[i]<= '9'){
+                num_list += or_array[i];
+            }
+
             if (or_array[i] == '+' || or_array[i] == '-' || or_array[i] == '*' || or_array[i] == '/' || or_array[i] == '%'){
-                operator += or_array[i];
-                count = i;
+                operator.add(or_array[i]);
+                num_list += ' ';
             }
         }
 
@@ -665,26 +672,39 @@ public class Calculator {
             b[i] = value2.charAt(i);
         }
 
-        // switch case
-        switch (operator) {
-            case '+':
-                result = Plus(a, b);
-                break;
-            case '-':
-                result = Minus(a, b);
-                break;
+        int s = 0;
 
-            case '*':
-                result = Multiply(a, b);
-                break;
+        while (num_list.charAt(s) != ' '){
 
-            case '/':
-                result = Division(a, b);
-                break;
 
-            case '%':
-                result =Remaining(a, b);
-                break;
+            s += 1;
+        }
+
+        for (char op : operator){
+
+
+
+            switch (op) {
+                case '+':
+                    result = Plus(a, b);
+                    break;
+                case '-':
+                    result = Minus(a, b);
+                    break;
+
+                case '*':
+                    result = Multiply(a, b);
+                    break;
+
+                case '/':
+                    result = Division(a, b);
+                    break;
+
+                case '%':
+                    result = Remaining(a, b);
+                    break;
+            }
+
         }
 
         System.out.println(result);
