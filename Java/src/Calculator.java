@@ -626,7 +626,7 @@ public class Calculator {
         }
 
         // n1과 n2에 값대입
-        for (int i = 0; i < count; i++){
+        for (int i = 0; i <= count; i++){
             if (or_array[i] >= '0' && or_array[i] <= '9'){
                 n1 += or_array[i];
             }
@@ -682,8 +682,6 @@ public class Calculator {
 
         for (char op : operator){
 
-
-
             switch (op) {
                 case '+':
                     result = Plus(a, b);
@@ -697,6 +695,12 @@ public class Calculator {
                     break;
 
                 case '/':
+
+                    if (a[0] == '0' || b[0] == '0'){
+                        System.out.println("잘못된 수식입니다.\n다시입력해주세요.");
+                        break;
+                    }
+
                     result = Division(a, b);
                     break;
 
