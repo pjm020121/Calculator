@@ -22,7 +22,7 @@
 
 ![image](https://github.com/pjm020121/Infinite_Digit_Calculator/assets/140699993/d69fbb06-5f55-4ef7-9d41-46bd535e608c)
 
-### Multiplly
+### Multiply
 
 ![image](https://github.com/pjm020121/Infinite_Digit_Calculator/assets/140699993/34e02b6e-5763-47ae-a4fd-5c8c0ab4adf1)
 
